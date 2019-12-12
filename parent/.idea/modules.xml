@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/parent.iml" filepath="$PROJECT_DIR$/parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../springcloud/springboot-cloud.iml" filepath="$PROJECT_DIR$/../springcloud/springboot-cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../springclient/springclient.iml" filepath="$PROJECT_DIR$/../springclient/springclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../springserver/springserver.iml" filepath="$PROJECT_DIR$/../springserver/springserver.iml" />
+    </modules>
+  </component>
+</project>
