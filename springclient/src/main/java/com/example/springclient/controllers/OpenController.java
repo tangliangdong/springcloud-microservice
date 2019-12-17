@@ -1,8 +1,7 @@
 package com.example.springclient.controllers;
 
-import org.aspectj.apache.bcel.classfile.Module;
+import com.example.springclient.consumers.OpenClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,11 +21,14 @@ public class OpenController {
 
     @Autowired
     private RestTemplate restTemplate;
-//
-//    @Autowired
-//    private OpenController(RestTemplate restTemplate){
-//        this.restTemplate = restTemplate;
-//    }
+
+    @Autowired
+    private OpenClient openClient;
+
+    @PostMapping("index")
+    public Map<String, Object> getIndex(String name, String age){
+        return openClient.getIndex(name, age);
+    }
 
     @PostMapping("test")
     public String test(){

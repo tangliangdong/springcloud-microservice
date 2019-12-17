@@ -6,8 +6,11 @@
         <groupId>com.example</groupId>
         <artifactId>springserver</artifactId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
+
+<!--    <packaging>pom</packaging>-->
+
     <groupId>com.example</groupId>
     <artifactId>api</artifactId>
     <version>1.0.0-SNAPSHOT</version>
