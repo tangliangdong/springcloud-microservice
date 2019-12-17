@@ -2,12 +2,13 @@ package com.example.springclient.controllers;
 
 import com.example.springclient.consumers.OpenClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -31,14 +32,14 @@ public class OpenController {
     }
 
     @PostMapping("test")
-    public String test(){
-        Map<String, Object> map = new HashMap<>();
-//        String response = restTemplate.postForObject("/open/index", map, String.class);
-
-//        RestTemplate restTemplate = new RestTemplate();
-        String response = restTemplate.getForObject("http://SERVER-01:8002/open/index", String.class);
+    public String test(String name, String age){
+        MultiValueMap<String, Object> map = new LinkedMultiValueMap();
+        map.add("name", name);
+        map.add("age", age);
+        String response = restTemplate.postForObject("http://SERVER-01/open/index", map, String.class);
 
         System.out.println(response);
         return response;
     }
+
 }
