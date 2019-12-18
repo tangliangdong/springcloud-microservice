@@ -31,16 +31,22 @@ public class OpenController {
     @PostMapping("hystrix_test")
     public Map<String, Object> hystrix_test(String name) {
         System.out.println(name);
-        new Thread(()->{
-            System.out.println(1);
-            try {
-                Thread.sleep(10000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }).start();
 
-        System.out.println("出来");
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+//        new Thread(()->{
+//            System.out.println(1);
+//            try {
+//                Thread.sleep(10000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }).start();
+
+//        System.out.println("出来");
         Map<String, Object> map = new HashMap<>();
         map.put("name", name);
         map.put("msg", "success");

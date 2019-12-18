@@ -16,3 +16,29 @@ eureka:
     serviceUrl:
       #在注册中心中进行注册
       defaultZone: http://localhost:8001/eureka/
+
+feign:
+  hystrix:
+    enabled: true #启用hystrix
+    command:
+      default:
+        execution:
+          isolation:
+            strategy: #默认是THREAD,这里演示改成了信号量隔离模式
+              semaphore:
+                maxConcurrentRequests: 3
+# Ribbon
+ribbon:
+  ReadTimeout: 2000 # 请求处理的超时时间
+  ConnectTimeout: 10000 # 请求连接的超时时间
+  #MaxAutoRetries: 0
+  #OkToRetryOnAllOperations: false #Whether all operations can be retried for this client
+  OkToRetryOnAllOperations: true
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
