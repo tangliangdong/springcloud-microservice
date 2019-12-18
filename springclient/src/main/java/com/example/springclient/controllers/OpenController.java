@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -43,10 +44,18 @@ public class OpenController {
         return response;
     }
 
-//    @PostMapping("hystrix_test")
-//    @HystrixCommand(fallbackMethod = "processHystrix_Get")
-//    public Map<String, Object> hystrix_test(String name){
-//
-//    }
+    @PostMapping("hystrix_test")
+    @HystrixCommand(fallbackMethod = "processHystrix_Get")
+    public Map<String, Object> hystrix_test(String name){
+        return openClient.hystrix_test(name);
+    }
+
+    public Map<String, Object> processHystrix_Get(String name){
+        Map<String, Object> map = new HashMap<>();
+
+        map.put("name", name);
+        map.put("msg", "服务熔断");
+        return map;
+    }
 
 }

@@ -26,4 +26,13 @@ public class OpenController {
         map.put("port", port);
         return map;
     }
+
+    @PostMapping("hystrix_test")
+    public Map<String, Object> hystrix_test(String name) throws InterruptedException {
+        Thread.sleep(5000);
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", name);
+        map.put("msg", "success");
+        return map;
+    }
 }

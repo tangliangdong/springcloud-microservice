@@ -1,6 +1,6 @@
 server:
   #服务端口
-  port: 8005
+  port: 8002
 
 spring:
   application:
