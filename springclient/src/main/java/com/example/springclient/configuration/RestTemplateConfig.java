@@ -1,5 +1,7 @@
 package com.example.springclient.configuration;
 
+import com.netflix.loadbalancer.IRule;
+import com.netflix.loadbalancer.RandomRule;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -24,7 +26,7 @@ import java.util.List;
 @Configuration
 public class RestTemplateConfig {
 
-    @LoadBalanced
+    @LoadBalanced()
     @Bean
     public RestTemplate restTemplate() {
         RestTemplate restTemplate = new RestTemplateBuilder()
@@ -54,6 +56,12 @@ public class RestTemplateConfig {
         }
 
         return restTemplate;
+    }
+
+    @Bean
+    public IRule irule() {
+        // 实现随机的负载均衡策略
+        return new RandomRule();
     }
 
 }

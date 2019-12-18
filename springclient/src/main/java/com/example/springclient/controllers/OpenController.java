@@ -1,6 +1,7 @@
 package com.example.springclient.controllers;
 
 import com.example.springclient.consumers.OpenClient;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -41,5 +42,11 @@ public class OpenController {
         System.out.println(response);
         return response;
     }
+
+//    @PostMapping("hystrix_test")
+//    @HystrixCommand(fallbackMethod = "processHystrix_Get")
+//    public Map<String, Object> hystrix_test(String name){
+//
+//    }
 
 }

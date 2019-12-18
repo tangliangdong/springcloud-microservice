@@ -1,10 +1,10 @@
 server:
   #服务端口
-  port: 8011
+  port: 9000
 
 spring:
   application:
-    name: client-01
+    name: ribbon-consumer
 
 eureka:
   instance:
