@@ -33,7 +33,7 @@ public class OpenController {
         System.out.println(name);
 
         try {
-            Thread.sleep(4000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -46,7 +46,7 @@ public class OpenController {
 //            }
 //        }).start();
 
-//        System.out.println("出来");
+        System.out.println("出来");
         Map<String, Object> map = new HashMap<>();
         map.put("name", name);
         map.put("msg", "success");

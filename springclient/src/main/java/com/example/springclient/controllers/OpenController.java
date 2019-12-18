@@ -47,7 +47,9 @@ public class OpenController {
     @PostMapping("hystrix_test")
     @HystrixCommand(fallbackMethod = "processHystrix_Get")
     public Map<String, Object> hystrix_test(String name){
-        return openClient.hystrix_test(name);
+        Map<String, Object> map = openClient.hystrix_test(name);
+        System.out.println("成功接收到消息");
+        return map;
     }
 
     public Map<String, Object> processHystrix_Get(String name){
