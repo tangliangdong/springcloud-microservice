@@ -52,4 +52,24 @@ public class OpenController {
         map.put("msg", "success");
         return map;
     }
+
+    private static Integer index = 0;
+
+    @RequestMapping("/timeout")
+    public String timeout() throws InterruptedException {
+        index++;
+        System.out.println(index);
+        System.out.println("invoking timeout endpoint");
+//        Thread.sleep(10000L);
+        return "success";
+    }
+
+    @RequestMapping("/exception")
+    public String exception() {
+        System.out.println("invoking exception endpoint");
+        if (System.currentTimeMillis() % 2 == 0) {
+            throw new RuntimeException("random exception");
+        }
+        return "success";
+    }
 }

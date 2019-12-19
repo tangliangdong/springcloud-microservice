@@ -19,4 +19,10 @@ public interface OpenClient {
     @PostMapping("open/hystrix_test")
     Map<String, Object> hystrix_test(@RequestParam("name") String name);
 
+    @PostMapping("open/timeout")
+    String timeout();
+
+    @PostMapping("open/exception")
+    String exception();
+
 }
