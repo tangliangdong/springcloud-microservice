@@ -1,0 +1,29 @@
+# 基础信息配置
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: api-gateway
+#  cloud:
+#    loadbalancer:
+#      ribbon:
+#        enabled
+
+server:
+  port: 2006
+  # 路由规则配置
+zuul:
+  routes:
+    prefix: /zuul
+    ribbon-consumer: /api-a/**
+  ignored-services: server-01
+  add-host-header: true
+
+
+# API网关也将作为一个服务注册到eureka-server上
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka/
+
