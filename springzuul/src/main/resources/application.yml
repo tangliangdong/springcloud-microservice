@@ -19,6 +19,7 @@ zuul:
     ribbon-consumer: /api-a/**
   ignored-services: server-01
   add-host-header: true
+  retryable: true
 
 
 # API网关也将作为一个服务注册到eureka-server上
