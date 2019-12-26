@@ -1,0 +1,41 @@
+server:
+  #服务端口
+  port: 9010
+
+spring:
+  application:
+    name: spring-gateway
+  cloud:
+    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+      routes:
+        - id: server-01-route
+          uri: lb://SERVER-01
+          predicates:
+            - Path=/server-01/**
+          filters:
+            - StripPrefix=1
+
+        - id: ribbon-consumer-route
+          uri: lb://ribbon-consumer
+          predicates:
+          - Path=/ribbon-consumer/**
+
+
+
+eureka:
+  instance:
+    #eureka主机名，会在控制页面中显示
+    hostname: localhost
+    prefer-ip-address: true
+    #eureka服务器页面中status的请求路径
+    status-page-url: http://${eureka.instance.hostname}:${server.port}/index
+  client:
+    serviceUrl:
+      #在注册中心中进行注册
+      defaultZone: http://localhost:8001/eureka/
+
+
+

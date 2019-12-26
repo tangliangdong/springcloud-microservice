@@ -20,6 +20,7 @@
         <module>../springclient</module>
         <module>../springserver</module>
         <module>../springzuul</module>
+        <module>../spring-gateway</module>
     </modules>
 
     <packaging>pom</packaging>
