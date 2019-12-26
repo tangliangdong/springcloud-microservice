@@ -7,14 +7,14 @@ spring:
     name: spring-gateway
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
+#      discovery:
+#        locator:
+#          enabled: true
       routes:
         - id: server-01-route
           uri: lb://SERVER-01
           predicates:
-            - Path=/server-01/**
+            - Path=/api/**
           # 前缀过滤，默认配置下，我们的请求路径是 http://localhost:9010/service-01/** 这时会路由到指定的服务
           # 此处配置去掉1个路径前缀，再配置上面的 Path=/server-01/**，就能按照 http://localhost:9000/server-01/** 的方式访问了
           filters:
@@ -23,7 +23,7 @@ spring:
         - id: ribbon-consumer-route
           uri: lb://ribbon-consumer
           predicates:
-          - Path=/ribbon-consumer/**
+            - Path=/ribbon-consumer/**
 
 eureka:
   instance:
